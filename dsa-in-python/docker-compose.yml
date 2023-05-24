@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  python3.7:
+    image: bitnami/python:3.7
+    volumes:
+      - type: bind
+        source: ./
+        target: /app
+    networks:
+      - br-web
+    tty: true
+
+networks:
+  br-web:
+    driver: bridge

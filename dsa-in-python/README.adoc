@@ -1,0 +1,25 @@
+= Data Structures and Algorithms in Python
+
+* https://www.amazon.com/Structures-Algorithms-Python-Michael-Goodrich/dp/1118290275[The Book on Amazon]
+
+== Docker
+
+=== Start container
+
+----
+docker compose up -d
+----
+
+=== Login to container
+
+----
+docker compose exec python3.7 bash
+----
+
+== Python Virtual Env
+
+=== Install local project
+
+----
+venv/bin/pip install -e .[testing]
+----
