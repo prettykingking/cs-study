@@ -1,0 +1,15 @@
+= Effective Java
+
+Include many things about Java, including algorithms, programming, concurrency and build tools.
+
+== Generate maven project
+
+=== Init project
+
+----
+mvn archetype:generate \
+-DgroupId=org.csstudy.java \
+-DartifactId=effective-java \
+-DarchetypeArtifactId=maven-archetype-quickstart \
+-DarchetypeVersion=1.4
+----
