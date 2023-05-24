@@ -1,0 +1,17 @@
+# vim editor
+.*.swp
+
+# compiled target
+*.o
+*.xo
+*.so
+*.d
+
+# logs
+*.log
+
+# cmake
+cmake-build-debug/
+
+# project specific
+effective-c
