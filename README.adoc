@@ -1,0 +1,7 @@
+= CS Study
+
+CS stands for Computer Science.
+
+My personal coding exercises. Practices of programming languages, algorithms
+in research.
+
