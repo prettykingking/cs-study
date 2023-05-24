@@ -1,0 +1,3 @@
+= Effective C++
+
+Practices of C++ programming in research.

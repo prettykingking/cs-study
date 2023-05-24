@@ -1,0 +1,16 @@
+# IDEA
+.idea/
+
+# compiled target
+*.o
+*.xo
+*.so
+*.d
+
+# logs
+*.log
+
+# cmake
+cmake-build-debug/
+
+# project specific
