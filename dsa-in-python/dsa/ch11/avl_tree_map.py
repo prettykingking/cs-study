@@ -39,11 +39,23 @@ class AVLTreeMap(TreeMap):
         return self._tall_child(child, alignment)
 
     def _rebalance(self, p):
-        pass
+        while p is not None:
+            old_height = p._node._height        # trivially 0 if new node
+            if not self._isbalanced(p):         # imbalance detected
+                # perform trinode restructuring, setting p to resulting root,
+                # and recompute new local heights after restructuring
+                p = self._restructure(self._tall_grandchild(p))
+                self._recompute_height(self.left(p))
+                self._recompute_height(self.right(p))
+            self._recompute_height(p)           # adjust for recent changes
+            if p._node._height == old_height:   # has height changed?
+                p = None                        # no further changes needed
+            else:
+                p = self.parent(p)              # repeat with parent
 
     # override balancing hooks
     def _rebalance_insert(self, p):
-        pass
+        self._rebalance(p)
 
     def _rebalance_delete(self, p):
-        pass
+        self._rebalance(p)
