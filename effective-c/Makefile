@@ -5,7 +5,7 @@ default: all
 .DEFAULT:
 	cd src && $(MAKE) $@
 
-install:
-	cd src && $(MAKE) $@
+.PHONY: clean
 
-.PHONY: install
+clean:
+	cd src && $(MAKE) $@
