@@ -3,4 +3,6 @@ project(effective-c)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(effective-c src/main.c)
+add_executable(effective-c src/main.c
+        src/alloc.c
+        src/io.c)
