@@ -11,7 +11,8 @@
 *.log
 
 # cmake
-cmake-build-debug/
+/cmake-build-debug/
 
 # project specific
-build/
+/src/effective-c
+/src/*.o

@@ -1,11 +1,11 @@
 # Top level makefile, the real shit is at src/Makefile
 
-default: all
+MAKEFLAGS += --no-print-directory
 
-.DEFAULT:
-	cd src && $(MAKE) $@
+.PHONY: build
+build:
+	(cd src && $(MAKE) $@)
 
 .PHONY: clean
-
 clean:
-	cd src && $(MAKE) $@
+	(cd src && $(MAKE) $@)

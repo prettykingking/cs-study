@@ -1,22 +1,28 @@
 # Main Makefile
 
-PROJ_NAME = effective-c
-BUILD_DIR = ../build
+MAKEFLAGS += --no-print-directory
 
-PROJ_CC = $(CC)
-PROJ_LD = $(LD)
+PROJ = effective-c
+CPU = X86_64
+C = ${CC} ${CPPFLAGS} -m64 -Wpointer-arith -Wall -Wextra -Wno-implicit-fallthrough -Werror -O2 ${CFLAGS}
+
 MKDIR = mkdir -p
 
-SRC = $(shell ls *.c)
-OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(SRC))
+SRC = main.c alloc.c io.c
+OBJ = $(patsubst %.c,%.o,$(SRC))
 
-.PHONY: all
+.PHONY: build
+build: $(PROJ)
+	@echo "Done :)"
 
-all: $(BUILD_DIR)/$(PROJ_NAME)
-	@echo ""
-	@echo "Hint: It's a good idea to run 'make test' ;)"
-	@echo ""
+# executable
+$(PROJ): $(OBJ)
+	$(C) -D$(CPU) -o $@ $^
 
-$(BUILD_DIR)/$(PROJ_NAME): $(SRC)
-	$(MKDIR) $(dir $@)
-	$(PROJ_CC) -Wall -W -o $@ $^
+# c source
+%.o: %.c
+	$(C) -c -D$(CPU) -o $@ $<
+
+.PHONY: clean
+clean:
+	rm -f $(PROJ) *.o
