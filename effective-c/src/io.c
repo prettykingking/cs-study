@@ -4,6 +4,8 @@
 
 #include <stdio.h>
 #include <wchar.h>
+#include <locale.h>
+#include <errno.h>
 
 void print_to_stdout(char *txt) {
     if (fputs(txt, stdout) == EOF) {
@@ -20,21 +22,13 @@ void setting_file_position() {
 
     long pos = ftell(doc);
     printf("initial position: %ld\n", pos);
-    wint_t c = fgetwc(doc);
-    printf("character at position %c\n", c);
 
-    if (fseek(doc, 5, SEEK_SET) != 0) {
-        fputs("Can not seek position at 5", stderr);
+    errno = 0;
+
+    wint_t wc;
+    while ((wc = fgetwc(doc)) != WEOF) {
+        printf("%lc", wc);
     }
-
-    pos = ftell(doc);
-    printf("position after seek: %ld\n", pos);
-
-    c = fgetwc(doc);
-    printf("get character at position %c\n", c);
-
-    pos = ftell(doc);
-    printf("position after seek: %ld\n", pos);
 
     if (fclose(doc) == EOF) {
         fputs("Can not close README.adoc properly", stderr);
