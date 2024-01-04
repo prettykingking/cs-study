@@ -5,4 +5,5 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(effective-c src/main.c
         src/alloc.c
-        src/io.c)
+        src/io.c
+        src/struct.c)

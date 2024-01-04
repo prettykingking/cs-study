@@ -35,3 +35,17 @@ void setting_file_position() {
         return;
     }
 }
+
+void read_and_put() {
+    int retry = 3;
+    int c;
+    while (retry > 0) {
+        c = getchar();
+        if (c != '\n')
+            printf("%x, %d\n", c, c);
+        if (putc(c, stdout) == EOF)
+            printf("output error");
+
+        retry--;
+    }
+}
