@@ -1,11 +1,20 @@
-#include "add.h"
+
 #include <iostream>
 
+#include "add.h"
 
 int main() {
     const char* name = "abc";
+    std::cout << std::strlen(name) << '\n';
+
     ++name;
-    std::cout << *name << '\n';
+    ++name;
+    ++name;
+    if (*name == '\0') {
+        std::cout << "bull char detected" << '\n';
+    } else {
+        std::cout << *name << '\n';
+    }
 
     char buf[10];
     std::cin.getline(buf, 10);
