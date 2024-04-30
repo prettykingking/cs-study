@@ -1,6 +1,6 @@
-package org.csstudy.java;
+package org.effectivejava;
 
-import org.csstudy.java.concurrency.Synchronization;
+import org.effectivejava.concurrency.Synchronization;
 
 
 /**

@@ -1,4 +1,4 @@
-package org.csstudy.java;
+package org.effectivejava;
 
 import static org.junit.Assert.assertTrue;
 

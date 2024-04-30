@@ -1,4 +1,4 @@
-package org.csstudy.java.concurrency;
+package org.effectivejava.concurrency;
 
 import java.util.concurrent.TimeUnit;
 
